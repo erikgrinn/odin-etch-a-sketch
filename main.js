@@ -1,10 +1,10 @@
 const gridContainer = document.querySelector('div.grid-container')
-console.log(gridContainer)
-// const gridItem = document.querySelector('.grid-item')
-// console.log(gridItem)
+
+const gridItemTemplate = document.createElement('div')
+gridItemTemplate.classList.add('grid-item')
+gridItemTemplate.textContent = 'i'
+
 for (let i=0; i<256; i++) {
-    var gridItem = document.createElement('div')
-    gridItem.classList.add('grid-item')
-    gridItem.textContent = 'i'
+    let gridItem = gridItemTemplate.cloneNode(true)
     gridContainer.appendChild(gridItem)
 };
