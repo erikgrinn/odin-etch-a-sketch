@@ -17,6 +17,7 @@ function resizeGrid (resizeNum) {
         gridContainer.appendChild(gridCol)
         for (let j=0; j<resizeNum; j++) {
             let gridItem = gridItemTemplate.cloneNode()
+            gridItem.textContent = 'sq'
             gridItem.addEventListener('mouseover', handleHover)
             gridCol.appendChild(gridItem)
         };
