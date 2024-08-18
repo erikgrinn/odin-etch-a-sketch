@@ -15,6 +15,11 @@ for (let i=0; i<16; i++) {
         count++
         let gridItem = gridItemTemplate.cloneNode()
         gridItem.textContent = count
+        gridItem.addEventListener('mouseover', handleHover)
         gridCol.appendChild(gridItem)
     };
+}
+
+function handleHover (event) {
+    event.target.style.backgroundColor = 'blue'
 }
