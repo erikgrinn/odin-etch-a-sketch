@@ -19,7 +19,7 @@ function resizeGrid (resizeNum) {
         for (let j=0; j<resizeNum; j++) {
             count++
             let gridItem = gridItemTemplate.cloneNode()
-            gridItem.textContent = count
+            // gridItem.textContent = count
             gridItem.addEventListener('mouseover', handleHover)
             gridRow.appendChild(gridItem)
         };
