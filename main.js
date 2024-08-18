@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector('div.grid-container')
 
-const gridColTemplate = document.createElement('div')
-gridColTemplate.classList.add('grid-col')
+const gridRowTemplate = document.createElement('div')
+gridRowTemplate.classList.add('grid-row')
 
 const gridItemTemplate = document.createElement('div')
 gridItemTemplate.classList.add('grid-item')
@@ -11,15 +11,17 @@ let resizeNum = 16
 resizeGrid(resizeNum)
 
 function resizeGrid (resizeNum) {
+    let count = 0
     gridContainer.innerHTML = ''
     for (let i=0; i<resizeNum; i++) {
-        let gridCol = gridColTemplate.cloneNode()
-        gridContainer.appendChild(gridCol)
+        let gridRow = gridRowTemplate.cloneNode()
+        gridContainer.appendChild(gridRow)
         for (let j=0; j<resizeNum; j++) {
+            count++
             let gridItem = gridItemTemplate.cloneNode()
-            gridItem.textContent = 'sq'
+            gridItem.textContent = count
             gridItem.addEventListener('mouseover', handleHover)
-            gridCol.appendChild(gridItem)
+            gridRow.appendChild(gridItem)
         };
     }
 }
