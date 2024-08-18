@@ -5,6 +5,6 @@ console.log(gridContainer)
 for (let i=0; i<256; i++) {
     var gridItem = document.createElement('div')
     gridItem.classList.add('grid-item')
-    gridItem.textContent = 'empty'
+    gridItem.textContent = 'i'
     gridContainer.appendChild(gridItem)
 };
