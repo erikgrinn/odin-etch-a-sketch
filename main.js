@@ -47,11 +47,11 @@ function handleHover (event) {
 }
 
 function handleClick (event) {
-    resizeNum = Number(prompt('Enter a number 1 and 64, and a new square grid will be created.'))
+    resizeNum = Number(prompt('Enter a number 1 and 100, and a new square grid will be created.'))
     if (resizeNum > 0 && resizeNum <= 100) {
         resizeGrid(resizeNum);
     } else {
-        alert('The number you entered was not between 1 and 64.');
+        alert('The number you entered was not between 1 and 100.');
         // handleClick()
     }
 }
