@@ -31,14 +31,15 @@ function handleHover (event) {
     let r = randomBetween(0,255)
     let g = randomBetween(0,255)
     let b = randomBetween(0,255)
-    let rgb = `rgb(${r},${g},${b})`
+    let a = 100
+    let rgba = `rgb(${r},${g},${b},${a})`
 
-    event.target.style.backgroundColor = rgb
+    event.target.style.backgroundColor = rgba
     
 
-    // while (rgb != 'rgb(0,0,0)') {
-    //     console.log(hoverCount)
-    // }
+    while (rgb != 'rgb(0,0,0)') {
+        console.log(hoverCount)
+    }
 }
 
 function handleClick (event) {

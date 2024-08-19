@@ -34,13 +34,14 @@ button:hover {
     height: 800px;
     border: 5px solid rgb(32, 81, 172);
     justify-content: center;
+    background-color: black;
+
    
 }
 
 .grid-row {
     display: flex;
     flex-direction: row;
-    /* flex-basis: 100%; */
     width: 100%;
     flex-grow: 1;
 }
