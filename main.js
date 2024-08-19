@@ -11,15 +11,12 @@ let resizeNum = 16
 resizeGrid(resizeNum)
 
 function resizeGrid (resizeNum) {
-    let count = 0
     gridContainer.innerHTML = ''
     for (let i=0; i<resizeNum; i++) {
         let gridRow = gridRowTemplate.cloneNode()
         gridContainer.appendChild(gridRow)
         for (let j=0; j<resizeNum; j++) {
-            count++
             let gridItem = gridItemTemplate.cloneNode()
-            // gridItem.textContent = count
             gridItem.addEventListener('mouseover', handleHover)
             gridRow.appendChild(gridItem)
         };
@@ -27,16 +24,21 @@ function resizeGrid (resizeNum) {
 }
 
 function handleHover (event) {
-    event.target.style.backgroundColor = 'blue'
+    let r = randomBetween(0,255)
+    let g = randomBetween(0,255)
+    let b = randomBetween(0,255)
+    let rgb = `rgb(${r},${g},${b})`
+
+    event.target.style.backgroundColor = rgb
 }
 
 function handleClick (event) {
-    resizeNum = Number(prompt('Enter a number <= 100, and a new square grid will be created'))
+    resizeNum = Number(prompt('Enter a number 1 and 64, and a new square grid will be created.'))
     if (resizeNum > 0 && resizeNum <= 100) {
         resizeGrid(resizeNum);
     } else {
-        alert('Please enter a valid number between 1 and 100');
-        handleClick()
+        alert('The number you entered was not between 1 and 64.');
+        // handleClick()
     }
 }
 
@@ -44,4 +46,14 @@ function handleClick (event) {
 const resizeButton = document.querySelector('button')
 resizeButton.addEventListener('click', handleClick)
 
+
+function randomBetween(min, max) {
+    return (min + Math.floor(Math.random() * (max - min + 1)))
+}
+
+// const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+// const r = randomBetween(0, 255);
+// const g = randomBetween(0, 255);
+// const b = randomBetween(0, 255);
+// const rgb = `rgb(${r},${g},${b})`;
 
