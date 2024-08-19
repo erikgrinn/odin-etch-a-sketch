@@ -5,7 +5,12 @@ gridRowTemplate.classList.add('grid-row')
 
 const gridItemTemplate = document.createElement('div')
 gridItemTemplate.classList.add('grid-item')
-gridItemTemplate.setAttribute('hover-count', 0)
+gridItemTemplate.setAttribute('data-hover-count', 0)
+gridItemTemplate.style.opacity = 1
+// gridItemTemplate.setAttribute('data-alpha', 100)
+
+const resizeButton = document.querySelector('button')
+resizeButton.addEventListener('click', handleClick)
 
 let resizeNum = 16
 resizeGrid(resizeNum)
@@ -23,22 +28,21 @@ function resizeGrid (resizeNum) {
     }
 }
 
-
 function handleHover (event) {
-    let hoverCount = event.target.getAttribute('hover-count')
-    event.target.setAttribute('hover-count', ++hoverCount)
+    let hoverCount = event.target.getAttribute('data-hover-count')
+    event.target.setAttribute('data-hover-count', ++hoverCount)
 
     let r = randomBetween(0,255)
     let g = randomBetween(0,255)
     let b = randomBetween(0,255)
-    let a = 100
-    let rgba = `rgb(${r},${g},${b},${a})`
+    // let a = event.target.getAttribute('data-alpha')
 
-    event.target.style.backgroundColor = rgba
-    
+    let rgb = `rgba(${r},${g},${b})`
+    event.target.style.backgroundColor = rgb
 
-    while (rgb != 'rgb(0,0,0)') {
-        console.log(hoverCount)
+    let opacity = event.target.style.opacity
+    if (opacity != 0) {
+        event.target.style.opacity = opacity-0.1
     }
 }
 
@@ -52,13 +56,6 @@ function handleClick (event) {
     }
 }
 
-
-const resizeButton = document.querySelector('button')
-resizeButton.addEventListener('click', handleClick)
-
-
 function randomBetween(min, max) {
     return (min + Math.floor(Math.random() * (max - min + 1)))
 }
-
-
