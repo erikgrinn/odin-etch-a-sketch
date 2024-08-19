@@ -5,9 +5,9 @@ gridRowTemplate.classList.add('grid-row')
 
 const gridItemTemplate = document.createElement('div')
 gridItemTemplate.classList.add('grid-item')
+gridItemTemplate.setAttribute('hover-count', 0)
 
 let resizeNum = 16
-
 resizeGrid(resizeNum)
 
 function resizeGrid (resizeNum) {
@@ -23,13 +23,22 @@ function resizeGrid (resizeNum) {
     }
 }
 
+
 function handleHover (event) {
+    let hoverCount = event.target.getAttribute('hover-count')
+    event.target.setAttribute('hover-count', ++hoverCount)
+
     let r = randomBetween(0,255)
     let g = randomBetween(0,255)
     let b = randomBetween(0,255)
     let rgb = `rgb(${r},${g},${b})`
 
     event.target.style.backgroundColor = rgb
+    
+
+    // while (rgb != 'rgb(0,0,0)') {
+    //     console.log(hoverCount)
+    // }
 }
 
 function handleClick (event) {
@@ -51,9 +60,4 @@ function randomBetween(min, max) {
     return (min + Math.floor(Math.random() * (max - min + 1)))
 }
 
-// const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-// const r = randomBetween(0, 255);
-// const g = randomBetween(0, 255);
-// const b = randomBetween(0, 255);
-// const rgb = `rgb(${r},${g},${b})`;
 

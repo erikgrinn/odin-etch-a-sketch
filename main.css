@@ -7,9 +7,9 @@ body {
     /* margin: 0; */
 }
 
-/* hover wasn't covered yet at this point (and webkit filter */
+/* hover wasn't covered yet at this point (and webkit filter) */
 button:hover {
-    -webkit-filter: invert(100%);
+    /* -webkit-filter: invert(100%); */
     filter: invert(100%);
 }
 
