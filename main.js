@@ -44,5 +44,4 @@ function handleClick (event) {
 const resizeButton = document.querySelector('button')
 resizeButton.addEventListener('click', handleClick)
 
-console.log(resizeNum)
 
