@@ -31,9 +31,9 @@ button:hover {
     align-items: center;
     width: 800px;
     height: 800px;
-    border: 5px ridge silver;
+    /* border: 5px ridge silver; */
     justify-content: center;
-    background-color: inherit;
+    /* background-color: rgb(60, 60, 60); */
     background-image: url('./images/odin.png');
     background-size: 800px;
 
